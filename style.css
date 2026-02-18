@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ── Base ── */
+:root {
+  --accent: #00d4aa;
+  --accent-dim: #00d4aa30;
+  --accent-hover: #00f0c0;
+  --surface: #0e1117;
+  --surface-raised: #161b22;
+  --surface-border: #21262d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --negative: #f85149;
+  --positive: #3fb950;
+}
+
+body *:not([class*="material"]):not([data-testid="stIconMaterial"]) {
+  font-family: "Inter", sans-serif !important;
+}
+
+code, [data-testid="stCode"] * {
+  font-family: "JetBrains Mono", monospace !important;
+}
+
+/* ── Top bar ── */
+header.stAppHeader {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+[data-testid="stDecoration"] {
+  background: linear-gradient(90deg, var(--accent), #0088ff);
+  height: 3px;
+}
+
+/* ── Sidebar ── */
+section[data-testid="stSidebar"] {
+  background: var(--surface-raised);
+  border-right: 1px solid var(--surface-border);
+}
+
+section[data-testid="stSidebar"] .stMarkdown h2 {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Typography ── */
+h1 {
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+h2, h3 {
+  font-weight: 600 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.01em !important;
+}
+
+.stCaption, [data-testid="stCaptionContainer"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.85rem !important;
+}
+
+/* ── Metrics ── */
+[data-testid="stMetric"] {
+  background: var(--surface-raised);
+  border: 1px solid var(--surface-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+[data-testid="stMetric"]:hover {
+  border-color: var(--accent-dim);
+}
+
+[data-testid="stMetricLabel"] {
+  color: var(--text-secondary) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+[data-testid="stMetricValue"] {
+  font-weight: 700 !important;
+  font-size: 1.6rem !important;
+  color: var(--text-primary) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-testid="stMetricDelta"] {
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+}
+
+/* ── Inputs ── */
+[data-testid="stNumberInputContainer"] {
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-testid="stNumberInputContainer"]:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.stSlider [data-testid="stThumbValue"] {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+.stTextInput input {
+  border-radius: 8px !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.stTextInput input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-dim) !important;
+}
+
+/* ── Containers / Cards ── */
+[data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"][data-has-border="true"]) {
+  border-color: var(--surface-border) !important;
+  border-radius: 12px !important;
+  background: var(--surface-raised);
+  transition: border-color 0.2s ease;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:has(> div > [data-testid="stVerticalBlock"][data-has-border="true"]):hover {
+  border-color: var(--accent-dim) !important;
+}
+
+/* ── Data table ── */
+[data-testid="stDataFrame"] {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+[data-testid="stDataFrame"] th {
+  text-transform: uppercase !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ── Expander ── */
+[data-testid="stExpander"] {
+  border: 1px solid var(--surface-border) !important;
+  border-radius: 10px !important;
+  background: var(--surface-raised);
+}
+
+[data-testid="stExpander"] summary {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+[data-testid="stExpander"] summary:hover {
+  color: var(--accent);
+}
+
+/* ── Success / alert banners ── */
+[data-testid="stAlert"] {
+  border-radius: 10px !important;
+  font-weight: 500;
+}
+
+/* ── Dividers ── */
+hr {
+  border-color: var(--surface-border) !important;
+  opacity: 0.5;
+  margin: 1.5rem 0 !important;
+}
+
+/* ── Toggle ── */
+[data-testid="stToggle"] label span {
+  font-size: 0.85rem;
+}
+
+/* ── Selectbox ── */
+[data-testid="stSelectbox"] > div > div {
+  border-radius: 8px !important;
+}
+
+/* ── Plotly overrides ── */
+.js-plotly-plot .plotly .modebar {
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+
+.js-plotly-plot .plotly:hover .modebar {
+  opacity: 1;
+}

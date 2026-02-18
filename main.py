@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -6,6 +8,10 @@ import streamlit as st
 ESSENTIAL_BF = 2.0
 
 st.set_page_config(page_title="BF% Competition Calculator", layout="wide")
+
+path = os.path.join(os.path.dirname(__file__), "style.css")
+with open(path) as css:
+    st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 st.title("Body Fat % Competition Calculator")
 st.caption("Predict outcomes for a DEXA scan body fat percentage competition")
 
